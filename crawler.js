@@ -51,6 +51,7 @@ var c = new Crawler({
                         listaenlaces.push(href)
                         if (href && texto && href.length >4 && texto.length >2 && !href.includes('#')) {
                             const website = psl.get(extractHostname(WEBSITE))
+                            //verifica si existe el registro en la bd y si no existe, lo guarda
                             const guardo = await dbutils.guardarEnlace(href, texto, website)
                             if( guardo === true){
                                 console.log("Saved ✅✅")
